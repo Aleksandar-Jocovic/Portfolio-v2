@@ -15,11 +15,11 @@
     <nav>
       <div class="logo">AJ</div>
       <ul>
-        <li><a href="#home"><span>01</span>Home</a></li>
-        <li><a href="#about"><span>02</span>About</a></li>
-        <li><a href="#projects"><span>03</span>Projects</a></li>
-        <li><a href="#contact"><span>04</span>Contact</a></li>
-        <li><a href="#resume">Resume</a></li>
+        <li><a href="#1"><span>01</span>Home</a></li>
+        <li><a href="#2"><span>02</span>About</a></li>
+        <li><a href="#3"><span>03</span>Projects</a></li>
+        <li><a href="#4"><span>04</span>Contact</a></li>
+        <li><a href="./resume.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
 
@@ -81,6 +81,8 @@
           praesentium perspiciatis accusamus voluptas modi. Aut iusto quos
           veritatis eaque a placeat id deleniti minima tenetur iure quasi fuga, ipsum sed eveniet accusantium dolores.
         </p>
+        <br>
+        <p>Technolories I'm working with:</p>
         <div class="tech-list">
           <p>JavaScript</p>
           <p>HTML & CSS</p>
@@ -96,6 +98,48 @@
     </div>
   </section>
 
+  <section class="contact" id="4">
+    <p class="page-background-num">04</p>
+
+    <h2 class="section-header">Contact me</h2>
+    <div class="section-content">
+      <div class="contact-text-and-info">
+        <p>
+          This is how you can reach me.
+          If you have any questions plese contact me.
+        </p>
+        <div>
+          <h3>Address:</h3>
+          <p>Serbia, Cacak</p>
+        </div>
+        <div>
+          <h3>Phone:</h3>
+          <p>+38164 433 34 34</p>
+        </div>
+        <div>
+          <h3>E-mail:</h3>
+          <p>jocovic099@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Or send a mesage</h2>
+        <form id="contact-form" netlify>
+          <input id="input-name" name="name" type="text" class="form-control" placeholder=" " required />
+          <label id="label-name">Your Name</label>
+
+          <input id="input-email" name="emial" type="email" class="form-control" placeholder=" " required />
+          <label id="label-email">Your Email</label>
+          <br />
+          <textarea name="message" class="form-control" placeholder=" " cols="60" rows="10" required></textarea><br />
+          <label id="label-message">Your Message</label>
+
+          <input type="submit" value="SEND">
+        </form>
+      </div>
+
+    </div>
+  </section>
 
 
 </body>
