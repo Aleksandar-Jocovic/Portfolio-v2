@@ -14,6 +14,8 @@
   --bg-dark: #1e2127;
   --secondary: #eeeeee;
   --heading: #D65A31;
+  --scrollbar: #858585;
+  --scrollbar-track: #4b4a4a;
 }
 
 [ligth-theme="light"] {
@@ -27,14 +29,14 @@ body {
   background: var(--bg-color);
   color: var(--primary);
   font-family: 'Montserrat', sans-serif;
-
-  
 }
 
 section {
   position: relative;
   min-height: 100vh;
-  padding: 0 150px 0 150px;
+  padding: 0 150px 100px 150px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 p {
@@ -45,6 +47,8 @@ p {
 .page-background-num {
   font-size: 28em;
   font-weight: 900;
+  max-width: 350px;
+  max-height: 400px;
   font-family: "Teko", sans-serif;
   color: var(--bg-dark);
   position: absolute;
@@ -59,7 +63,10 @@ p {
   bottom: 10%;
   left: 40%;
 }
-
+.projects .page-background-num {
+  bottom: 0;
+  right: 10%;
+}
 .contact .page-background-num {
   bottom: 10%;
   left: 20%;
@@ -71,11 +78,15 @@ p {
   position: fixed;
   bottom: 50px;
   left: 20px;
+  z-index: 2;
 }
-
-.icons-home svg {
+.icons-home a {
+  z-index: 2;
+}
+.icons-home a svg {
   fill: var(--primary);
   margin: 10px 0;
+  transition: 0.3s;
 }
 
 .icons-home svg:first-child {
@@ -85,6 +96,10 @@ p {
   left: 1px;
 }
 
+.icons-home svg:hover {
+  fill: var(--heading);
+  transform: translateY(-3px);
+}
 .icons-home::before {
   content: "";
   position: absolute;
@@ -101,6 +116,7 @@ p {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .page-navigation button { 
@@ -114,9 +130,6 @@ p {
   transition: all 0.3s;
 }
 
-.page-navigation button {
-  user-select: none;
-}
 
 .page-navigation:hover button:first-child {
   transform: translateY(-5px);
@@ -137,7 +150,7 @@ svg polyline {
 svg line {
   width: 24px;
   stroke: var(--secondary);
-  stroke-width: 2;
+  stroke-width: 1;
 }
 
 .page-num {
@@ -146,6 +159,8 @@ svg line {
   letter-spacing: 1px;
   padding: 0px 3px 0px 3px;
 }
+
+
 
 
 .section-header {
@@ -168,15 +183,54 @@ svg line {
 
 
 /* ******************************************** home start */
+
+.menu-button {
+  position: absolute;
+  z-index: 4;
+  right: 35px;
+  top: 35px;
+  display: none;
+}
+
+.menu-button .line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: var(--primary);
+  transition: 300ms;
+}
+
+
+
+.active-menu-button .line:nth-child(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+.active-menu-button .line:nth-child(2) {
+  opacity: 0;
+}      
+.active-menu-button .line:nth-child(3) {
+  transform: translateY(-8px) rotate(45deg) ;
+}
+
+.active-menu {
+  -webkit-transform: none;
+  transform: none !important;
+}
+
+.menu-animatable .menu { 
+  transition: all 230ms ease-in;
+}
+
+.active-menu .menu-animatable { 
+  transition: all 300ms ease-out;
+}  
+
+
 nav {
-/*   position: absolute;
-  top: 0;
-  right: 0; */
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 60px 20px 30px;
+  justify-content: flex-end;
+  padding-top: 30px;
 }
 
 nav ul {
@@ -192,10 +246,10 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: var(--primary);
-  font-size: 22px;
+  font-size: 20px;
   text-transform: capitalize;
   font-family: 'Teko', sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 
@@ -214,7 +268,11 @@ nav ul li a span {
 nav ul li a:hover {
   color: var(--secondary);
 }
-nav .logo {
+.logo {
+  position: absolute;
+  z-index: 4;
+  left: 30px;
+  top: 15px;
   margin: 0px;
   font-family: 'Teko', sans-serif;
   font-size: 43px;
@@ -223,9 +281,13 @@ nav .logo {
 
 
 .intro {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-100%);
   font-family: 'Montserrat', sans-serif;
   max-width: 604px;
-  margin: 250px 0 0 0px;
+  /* margin: 250px 0 0 0px; */
 }
 .intro h1 {
   font-size: 60px;
@@ -234,23 +296,25 @@ nav .logo {
 
 .intro h2 {
   font-size: 40px;
-  padding-bottom: 15px;
+  margin: 0px 0 50px 0;
 }
 
 /* ******************************************** home start */
 
-
 .about .section-content {
   display: flex;
+  justify-content: space-between;
 }
+
 .profile-img {
   height: fit-content;
   position: relative;
-  margin-left: 5%;
 }
+
 .profile-img img {
   width: 250px;
 }
+
 .profile-img:before {
   content: '';
   position: absolute;
@@ -259,7 +323,6 @@ nav .logo {
   width: 100%;
   height: 100%;
   border: 1px solid var(--border-color);
-
   z-index: -1;
 }
 
@@ -299,7 +362,6 @@ nav .logo {
   max-width: 400px;
 }
 
-
 .contact-text-and-info p {
   margin-bottom: 30px;
 }
@@ -313,8 +375,8 @@ nav .logo {
   background: var(--bg-dark);
   padding: 30px 40px;
   -webkit-box-shadow: 10px 10px 11px -2px rgba(0,0,0,0.35);
--moz-box-shadow: 10px 10px 11px -2px rgba(0,0,0,0.35);
-box-shadow: 10px 10px 11px -2px rgba(0,0,0,0.35);
+  -moz-box-shadow: 10px 10px 11px -2px rgba(0,0,0,0.35);
+  box-shadow: 10px 10px 11px -2px rgba(0,0,0,0.35);
 }
 
 .contact-form h2 {
@@ -337,6 +399,7 @@ textarea {
 form {
   position: relative;
 }
+
 form input:last-child {
   margin: 0 auto;
   position: relative;
@@ -356,7 +419,6 @@ form input:last-child {
 form input:last-child:hover {
   filter: contrast(80%)
 }
-
 
 label {
   color: var(--primary);
@@ -432,18 +494,346 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+/* *********************************************** project */
+
+.all-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 10px;
+}
+
+.project {
+  width: 280px;
+  height: 260px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.project img {
+  width: 100%;
+  height: 80%;
+}
+
+.project-modul {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  display: none;
+  background: var(--bg-dark);
+  padding-left: 20px;
+  border: 2px solid var(--scrollbar-track)
+}
+
+/* #project-modul-layer {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 350px;
+  background: transparent;
+  z-index: 1;
+} */
+
+.active-modul {
+  display: flex;
+  z-index: 3;
+}
+
+.modul-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  z-index: 3;
+  cursor: pointer;
+
+}
+
+button svg {
+  pointer-events: none;
+
+}
+
+.modul-close-button line {
+  stroke: var(--primary)
+}
+
+.carousel {
+  width: 350px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+}
+
+
+.inner {
+  width: 300%;
+  height: 300px;
+  transform: translateX(-320px);
+  position: relative;
+}
+.inner::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, var(--bg-color) 100%);
+  z-index: 2;
+}
+
+.box1, .box2, .box3,
+.box4, .box5, .box6 {
+  width: 350px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  will-change: transform, filter;
+}
+
+.box1 img, .box2 img, .box3 img,
+.box4 img, .box5 img, .box6 img {
+  width: 100%;
+  height: 100%;
+}
+
+.before {
+  transition: all 550ms ease;
+  transform: translate(-200%, 0);
+  z-index: -10;
+  filter: brightness(70%);
+}
+.active {
+  transition: all 550ms ease;
+  transform: translate(-100%, -0px)!important;
+  z-index: 1;
+}
+
+.after {
+  transition: all 550ms ease;
+  transform: translate(0, 0);
+  filter: brightness(70%);
+  z-index: -10;
+}
+
+
+.carousel-navigation {
+  position: absolute;
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  bottom: 0;
+/*   background: linear-gradient(180deg, rgba(0,0,0,0) 50%, var(--bg-dark) 100%); */
+
+}
+
+.carousel-navigation button {
+  margin: 0 30px;
+  width: fit-content;
+  height: fit-content;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+.carousel-navigation button svg {
+  pointer-events: none;
+}
+.carousel-navigation:hover button:first-child {
+  transform: translateX(-5px);
+}
+.carousel-navigation:hover button:last-child {
+  transform: translateX(5px);
+}
+.carousel-navigation:hover button svg polyline {
+  transition: 0.3s;
+  stroke: var(--heading);
+}
+
+.carousel-navigation p {
+  font-family: 'Teko', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.project-modul-info {
+  width: 450px;
+  height: 350px;
+  padding: 35px 25px 25px 25px;
+  color: var(--primary);
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* top: -50px; */
+}
+
+.project-modul-info svg {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  z-index: 1;
+}
+.project-modul-info svg polyline { 
+  fill: none;
+  stroke: var(--heading);
+  stroke-width: 9;
+}
+
+.project-modul-info svg:nth-child(2) {
+  position: absolute;
+  top: unset !important;
+  left: unset !important;
+  bottom: -4px;
+  right: -4px;
+  z-index: 1;
+}
+
+.project-modul-info .tech-used {
+  margin: 10px 0 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-modul-info .tech-used p {
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin: 3px 4px;
+} 
+
+#modul-description {
+  height: 130px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+#modul-description::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+#modul-description::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+/* Handle */
+#modul-description::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+}
+
+/* Handle on hover */
+#modul-description::-webkit-scrollbar-thumb:hover {
+  background: var(--heading);
+}
+
+
+#demo-git-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+ 
+}
+
+#demo-git-buttons a {
+  text-decoration: none;
+  z-index: 4 !important;
+}
+
+#git-link, #demo-link {
+  z-index: 3;
+}
+#demo-git-buttons a svg {
+  position: unset;
+  fill: var(--primary);
+  margin: 0 10px;
+  transition: 0,3s;
+  pointer-events: none;
+}
+
+#demo-git-buttons a:hover svg {
+  fill: var(--heading)
+}
+
 
 /* *********************************************** media query */
-
+@media(max-width: 1050px) {
+  section {
+    padding: 0 80px 0 80px;
+  }
+    .contact .section-content {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+  }
+  .contact-text-and-info {
+    margin: 0 auto;
+  }
+  .contact-form {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .contact .page-background-num {
+    bottom: unset;
+    top: 0;
+    left: 40%;
+  }
+}
 
 @media(max-width: 800px) {
+  .menu-button {
+    display: block;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0px;
+    -webkit-transform: translateX(103%);
+    transform: translateX(103%);
+    width: 300px;
+    height: 100vh;
+    background: var(--bg-dark);
+    z-index: 3;
+    padding: 170px 0 200px 0;
+    /* transition: transform 300ms linear; */
+    will-change: transform;
+  }
+  nav ul {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  nav ul {
+    text-align: center;
+  }
     section {
     padding: 0 80px 0 80px;
+  }
+  .section-header {
+    font-size: 35px;
+  }
+  .section-header:before {
+    left: 110%;
+    width: 90%;
   }
   .intro {
     font-family: 'Montserrat', sans-serif;
     max-width: 550px;
-    margin: 120px 0 0 0px;
+    padding: 0 60px 0 80px;
+    left: 0;
+    transform: translateY(-50%);
   }
   .intro h1 {
     font-size: 50px;
@@ -454,5 +844,58 @@ select:-webkit-autofill:focus {
   .intro h2 {
     font-size: 30px;
     padding-bottom: 15px;
+    margin: 5px 0 15px 0;
   }
+  .about .section-content {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .about-text-and-tech {
+    margin: 30px 0;
+  }
+
 }
+
+
+@media(max-width: 500px) {
+  section {
+    padding: 0 60px 0 60px;
+  }
+  .section-header {
+    font-size: 30px;
+  }
+  .section-header:before {
+    left: 10%;
+    width: 80%;
+    top: 105%;
+
+  }
+  .intro {
+    padding: 0 60px 0 60px;
+  }
+  .intro h1 {
+    font-size: 30px;
+    width: fit-content;
+  }
+  .intro h2 {
+    font-size: 28px;
+    padding-bottom: 15px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .home .page-background-num {
+    bottom: 30%;
+    right: 10%;
+  }
+  .profile-img {
+    width: 250px;
+  }
+
+}
+
+
+/* link button on hover dont work */
