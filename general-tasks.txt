@@ -1,6 +1,10 @@
 scroll spy 
 animacije 
-responsive
+
 animacija na slici
 logo malo bolji
 menu da se pojavi na scroll gore
+
+light theme
+
+

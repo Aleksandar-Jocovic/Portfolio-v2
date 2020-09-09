@@ -140,7 +140,9 @@ const projectModul = document.querySelector('.project-modul');
 const displayWorkInfo = (e) => {
 
   const modulTitle = document.getElementById('modul-title');
+  const fakeModulTitle = document.getElementById('fake-modul-title');
   const modulTech = document.getElementById('modul-tech');
+
   const modulDescription = document.getElementById('modul-description');
   const git = document.getElementById('git-link');
   const demo = document.getElementById('demo-link');
@@ -154,6 +156,8 @@ const displayWorkInfo = (e) => {
   projectModul.classList.add('active-modul');
 
   modulTitle.innerText = data[index].title;
+  fakeModulTitle.innerText = data[index].title;
+
 
   let technologiesToAddToHTML = ''
 
@@ -162,6 +166,7 @@ const displayWorkInfo = (e) => {
   });
 
   modulTech.innerHTML = technologiesToAddToHTML;
+
   modulDescription.innerText = data[index].description;
   git.href = data[index].git
   demo.href = data[index].demo
