@@ -82,9 +82,19 @@ p {
   left: 20px;
   z-index: 2;
 }
+.icons-home button,
 .icons-home a {
   z-index: 2;
 }
+
+.icons-home button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.icons-home button svg,
 .icons-home a svg {
   fill: var(--primary);
   margin: 10px 0;
@@ -98,7 +108,8 @@ p {
   left: 1px;
 }
 
-.icons-home svg:hover {
+.icons-home a:hover svg,
+.icons-home button:hover svg {
   fill: var(--heading);
   transform: translateY(-3px);
 }
@@ -111,6 +122,36 @@ p {
   width: 2px;
   background: var(--primary);
   transform: translateY(-110%);
+}
+
+.pop-up {
+  position: absolute;
+  transform: translate(40px, 100%);
+  background: var(--bg-dark);
+  border: 1px solid var(--scrollbar-track);
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+}
+/* .pop-up:last-child {
+  transform: translate(25%, 100%);
+} */
+.pop-up p {
+  font-size: 14px;
+}
+.pop-up-false {
+  display: none;
+}
+
+.pop-up button{
+  cursor: pointer;
+  width: 80px;
+  height: 30px;
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  /* margin: 0 auto; */
+
+  margin-top: 10px;
 }
 
 .page-navigation {
@@ -219,11 +260,11 @@ svg line {
   transform: none !important;
 }
 
-.menu-animatable .menu { 
+.menu-animatable.menu { 
   transition: all 230ms ease-in;
 }
 
-.active-menu .menu-animatable { 
+.active-menu.menu-animatable { 
   transition: all 300ms ease-out;
 }  
 
@@ -315,6 +356,7 @@ nav ul li a:hover {
 
 .profile-img img {
   width: 250px;
+  opacity: 1;
 }
 
 .profile-img .profile-img-border {
@@ -351,21 +393,21 @@ nav ul li a:hover {
   stroke: var(--heading);
   stroke-width: 6;
   transition: 500ms;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1125;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 365;
 }
 
 .profile-img:hover .profile-img-border svg rect {
   
-  animation: anim 300ms linear forwards;
+  animation: anim 700ms linear forwards;
   
 }
 
 @keyframes anim {
   100% {
     stroke: var(--heading);
-    stroke-dasharray:  295;
-    stroke-dashoffset: 805;
+    stroke-dasharray:  600;
+    stroke-dashoffset: 975;
     /* stroke-dashoffset: 25; */
   }
 }
@@ -556,7 +598,6 @@ select:-webkit-autofill:focus {
 .project img {
   width: 100%;
   height: 80%;
-  opacity: 1;
 }
 
 .project-modul {

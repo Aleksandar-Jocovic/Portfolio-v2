@@ -206,7 +206,7 @@ window.onclick = (event) => {
 // toggle menu
 
 const menuBtn = document.querySelector('.menu-button')
-const menu = document.getElementById('navigation')
+const menu = document.querySelector('.menu')
 
 const toggleMenu = () => {
 
@@ -242,3 +242,58 @@ window.addEventListener('click', (e) => {
   }
 })
 
+
+// pop up gmail and skype id 
+
+const popUpButtons = document.querySelectorAll('.pop-up-btn');
+const popUps = document.getElementsByClassName('pop-up');
+
+window.onload = mainFun;
+function mainFun() {
+  document.getElementById('icons').onclick = btnFun
+}
+
+
+function btnFun(e) {
+  if (e.target.tagName == 'BUTTON') {
+    if (!popOne.classList.contains('pop-up-false') || !popTwo.classList.contains('pop-up-false')) {
+      popOne.classList.add('pop-up-false');
+      popTwo.classList.add('pop-up-false')
+    }
+    let pop = document.getElementById(`pop${e.target.id}`);
+    //console.log(pop)
+    if (pop.classList.contains('pop-up-false')) {
+
+      pop.classList.remove('pop-up-false')
+
+    } else {
+      pop.classList.add('pop-up-false')
+
+    }
+  }
+}
+const popOne = document.getElementById('pop0');
+const popTwo = document.getElementById('pop1');
+
+const emailBtn = document.getElementById('email-popup-button');
+const emailContactBtn = document.getElementById('email-contact-btn');
+
+emailBtn.addEventListener('click', () => {
+  window.open('mailto:jocovic099@gmail.com')
+})
+
+
+window.onclick = (event) => {
+  console.log(event)
+  if (
+    event.target.tagName !== 'BUTTON' &&
+    event.target.id !== "pop0" &&
+    event.target.id !== "pop1" &&
+    event.target.className !== "pop-text"
+  ) {
+    if (!popOne.classList.contains('pop-up-false') || !popTwo.classList.contains('pop-up-false')) {
+      popOne.classList.add('pop-up-false');
+      popTwo.classList.add('pop-up-false')
+    }
+  }
+};
