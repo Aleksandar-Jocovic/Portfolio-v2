@@ -1,14 +1,11 @@
-scroll spy 
+
 animacije 
 
-animacija na slici
 logo malo bolji
 menu da se pojavi na scroll gore
 
 light theme
 
 svg rect height na sliic baguje vrv zbog calc height u svg el
-
-coppy to clipboard
-
+svg rect make slall div and big div
 

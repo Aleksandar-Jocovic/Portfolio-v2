@@ -189,20 +189,6 @@ closeWork.addEventListener('click', () => {
   resetCarousel()
 })
 
-window.onclick = (event) => {
-  console.log(event)
-  if (
-    event.target.tagName === "SECTION" &&
-    projectModul.classList.contains('active-modul')
-  ) {
-    projectModul.classList.remove('active-modul');
-    resetCarousel()
-  }
-};
-
-/* menu toggle */
-
-
 // toggle menu
 
 const menuBtn = document.querySelector('.menu-button')
@@ -233,43 +219,42 @@ menuBtn.addEventListener('click', toggleMenu, false)
 
 window.addEventListener('click', (e) => {
   if (menu.classList.contains('active-menu')
-    && event.target.tagName === "SECTION"
+    && e.target.tagName === "SECTION"
   ) {
     console.log('ins', e)
     menu.classList.add('menu-animatable');
     menu.classList.remove('active-menu');
     menuBtn.classList.remove('active-menu-button');
   }
+  // close work modal
+  if (
+    e.target.tagName === "SECTION" &&
+    projectModul.classList.contains('active-modul')) {
+
+    projectModul.classList.remove('active-modul');
+    resetCarousel()
+  }
 })
 
 
 // pop up gmail and skype id 
 
-const popUpButtons = document.querySelectorAll('.pop-up-btn');
-const popUps = document.getElementsByClassName('pop-up');
-
-window.onload = mainFun;
-function mainFun() {
-  document.getElementById('icons').onclick = btnFun
-}
-
+document.querySelectorAll('.pop-up-btn').forEach((el) => {
+  el.addEventListener('click', e => btnFun(e))
+})
 
 function btnFun(e) {
-  if (e.target.tagName == 'BUTTON') {
-    if (!popOne.classList.contains('pop-up-false') || !popTwo.classList.contains('pop-up-false')) {
+  if (e.target.classList.contains('pop-up-btn')) {
+
+    if (!popOne.classList.contains('pop-up-false') ||
+      !popTwo.classList.contains('pop-up-false')) {
       popOne.classList.add('pop-up-false');
       popTwo.classList.add('pop-up-false')
     }
-    let pop = document.getElementById(`pop${e.target.id}`);
-    //console.log(pop)
+    let pop = document.getElementById(`pop${e.target.name}`);
     if (pop.classList.contains('pop-up-false')) {
-
       pop.classList.remove('pop-up-false')
-
-    } else {
-      pop.classList.add('pop-up-false')
-
-    }
+    } else pop.classList.add('pop-up-false')
   }
 }
 const popOne = document.getElementById('pop0');
@@ -284,7 +269,6 @@ emailBtn.addEventListener('click', () => {
 
 
 window.onclick = (event) => {
-  console.log(event)
   if (
     event.target.tagName !== 'BUTTON' &&
     event.target.id !== "pop0" &&
@@ -293,7 +277,134 @@ window.onclick = (event) => {
   ) {
     if (!popOne.classList.contains('pop-up-false') || !popTwo.classList.contains('pop-up-false')) {
       popOne.classList.add('pop-up-false');
-      popTwo.classList.add('pop-up-false')
+      popTwo.classList.add('pop-up-false');
     }
   }
 };
+
+
+const copyText = e => {
+  const text = document.querySelector(`.pop-text${e.target.name}`).innerText;
+
+  const el = document.createElement('textarea');
+  el.value = text;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+}
+
+document.querySelectorAll('.copy-btn').forEach(el => {
+  el.addEventListener("click", e => copyText(e))
+})
+
+
+// chak if el is in wiewport
+
+var scroll = /* window.requestAnimationFrame || */
+  function (callback) {
+    window.setTimeout(callback, 200)
+  };
+
+
+var sections = document.querySelectorAll('.sec');
+
+const topPageNavigationNum = document.getElementById('page-num1')
+const bottomPageNavigationNum = document.getElementById('page-num2')
+
+const topPageNavigationLink = document.getElementById('page-link1')
+const bottomPageNavigationLink = document.getElementById('page-link2')
+
+let numTop;
+let numBottom;
+
+// enter animations elements
+const enterUp = document.querySelectorAll('.enter-up');
+const enterDown = document.querySelectorAll('.enter-down');
+
+
+function loop() {
+
+  // page navigation and links disabling
+  sections.forEach(function (element) {
+    if (isSectionInViewport(element)) {
+      let currentSection = +element.id;
+      numTop = `0${currentSection - 1}`
+      numBottom = `0${currentSection + 1}`
+
+      if (+element.id === 1) {
+        topPageNavigationLink.classList.add('disable-link');
+        numTop = '';
+      } else topPageNavigationLink.classList.remove('disable-link');
+      if (+element.id === 4) {
+        numBottom = "";
+        bottomPageNavigationLink.classList.add('disable-link');
+      } else bottomPageNavigationLink.classList.remove('disable-link');
+
+      topPageNavigationNum.innerHTML = numTop;
+      bottomPageNavigationNum.innerHTML = numBottom;
+      topPageNavigationLink.href = `#${+element.id - 1}`;
+      bottomPageNavigationLink.href = `#${+element.id + 1}`;
+    }
+  });
+
+  enterUp.forEach(element => {
+    if (isElementInViewport(element)) {
+      element.classList.add('fade-enter')
+    }
+  });
+  enterDown.forEach(element => {
+    if (isElementInViewport(element)) {
+      element.classList.add('fade-enter')
+    }
+  });
+
+  scroll(loop);
+}
+
+loop();
+
+function isElementInViewport(el) {
+
+  var rect = el.getBoundingClientRect();
+
+  return (
+    (rect.top <= 0 && rect.bottom >= 0 - rect.height / 2) ||
+    (rect.bootom - rect.height / 2 >= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight)) ||
+    (rect.top >= 0 && rect.bottom - rect.height / 2 <= (window.innerHeight ||
+      document.documentElement.clientHeight))
+  );
+}
+
+function isSectionInViewport(el) {
+
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top < document.documentElement.clientHeight / 2 &&
+    rect.bottom > document.documentElement.clientHeight / 2
+  );
+}
+
+
+// scroll to next prev page animation
+
+const pageNavLinks = document.querySelectorAll('.page-nav-link');
+const pageNavLine = document.getElementById('page-nav-line');
+
+pageNavLinks.forEach(item => {
+  item.addEventListener('click', () => {
+    pageNavLine.classList.add('page-navigation-line-animation');
+    removePageNavAnimation()
+  })
+})
+
+const removePageNavAnimation = () => {
+  setTimeout(() => {
+    pageNavLine.classList.remove('page-navigation-line-animation')
+  }, 300)
+}
+
