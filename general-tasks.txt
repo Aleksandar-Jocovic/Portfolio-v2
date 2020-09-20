@@ -1,11 +1,8 @@
 
-animacije 
-
-logo malo bolji
 menu da se pojavi na scroll gore
 
-light theme
 
 svg rect height na sliic baguje vrv zbog calc height u svg el
 svg rect make slall div and big div
 
+update and add cv,  old portfolio, smaniti gap na tech shopopu,
