@@ -93,6 +93,14 @@ const data = [
     demo: 'https://xenodochial-edison-e3f9a0.netlify.app/'
   },
   {
+    title: 'CV Free',
+    img: ["./img/info-img/cvf1.png", "./img/info-img/cvf2.png", "./img/info-img/cvf3.png"],
+    description: "Online Circum Vitae (CV) builder. On this project I learned about jspdf library, uploading and downloading files.",
+    tech: ["React.js", "jspdf"],
+    git: 'https://github.com/Aleksandar-Jocovic/CV-Free',
+    demo: 'https://aleksandar-jocovic.github.io/CV-Free/'
+  },
+  {
     title: 'Project Base',
     img: ["./img/info-img/bas1.png", "./img/info-img/bas2.png", "./img/info-img/bas3.png"],
     description: "aaaalsklaslk laskdlaskd laskdlaskdlas alskdlaskd alskdalkdl alsdk",
@@ -123,14 +131,6 @@ const data = [
     tech: ["HTML5&CSS3", "JS", "React.js", "Redux"],
     git: 'https://github.com/Aleksandar-Jocovic/Random-Color-UNDO-REDO-react-redux',
     demo: 'https://aleksandar-jocovic.github.io/Random-Color-UNDO-REDO-react-redux/'
-  },
-  {
-    title: 'Continent Quiz',
-    img: ["./img/info-img/qui1.png", "./img/info-img/qui2.png", "./img/info-img/qui3.png"],
-    description: "aaaalsklaslk laskdlaskd laskdlaskdlas alskdlaskd alskdalkdl alsdk",
-    tech: ["HTML5&CSS3", "JS", "SASS"],
-    git: 'https://github.com/Aleksandar-Jocovic/continent-quiz-app',
-    demo: 'https://keen-meitner-d8cb1c.netlify.app'
   }
 ]
 

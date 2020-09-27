@@ -6,3 +6,10 @@ svg rect height na sliic baguje vrv zbog calc height u svg el
 svg rect make slall div and big div
 
 update and add cv,  old portfolio, smaniti gap na tech shopopu,
+
+menu da se zatvori kad se klike link
+built by na malim ekranu prelazipreko forme
+
+na malom ekr pojavi se horizontal scrool kad uciatva
+
+spustiti malo git and demo buttons ili smanjiti max height opisa
