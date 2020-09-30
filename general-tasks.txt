@@ -1,15 +1,7 @@
 
-menu da se pojavi na scroll gore
+old portfolio, smaniti gap na tech shopopu,
+resume srediti
 
 
-svg rect height na sliic baguje vrv zbog calc height u svg el
-svg rect make slall div and big div
 
-update and add cv,  old portfolio, smaniti gap na tech shopopu,
-
-menu da se zatvori kad se klike link
-built by na malim ekranu prelazipreko forme
-
-na malom ekr pojavi se horizontal scrool kad uciatva
-
-spustiti malo git and demo buttons ili smanjiti max height opisa
+na malom ekr pojavi se horizontal scrool kad uciatva izg da je do interneta sad se ne pojavlhuje

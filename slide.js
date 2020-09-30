@@ -87,7 +87,7 @@ const data = [
   {
     title: 'Norms-App',
     img: ["./img/info-img/nor1.png", "./img/info-img/nor2.png", "./img/info-img/nor4.png"],
-    description: "Asklaslk laskdlaskd laskdlaskdlas alskdlaskd lskdalkdl alsdk aaaalskl aslk la skdl askd laskd las dlasl skdalkdl alsdk aaaalsklaslk la skdl askd laskd laskdlas alskdalkdl alsdk aaaalsklaslk laskdlaskd laskdlaskdlas alskdlaskd alskdalkdl alsdk",
+    description: "Asklaslk laskdlaskd laskdlaskdlas alskdlaskd lskdalkdl <br> alsdk aaaalskl aslk la skdl askd laskd las dlasl skdalkdl alsdk aaaalsklaslk la skdl askd <br></br>  laskd laskdlas alskdalkdl alsdk aaaalsklaslk laskdlaskd laskdlaskdlas alskdlaskd alskdalkdl alsdk",
     tech: ["React.js(context)", "Bootstrap4", "ApexChart.js"],
     git: 'https://github.com/Aleksandar-Jocovic/Norms-React-App',
     demo: 'https://xenodochial-edison-e3f9a0.netlify.app/'
@@ -167,7 +167,7 @@ const displayWorkInfo = (e) => {
 
   modulTech.innerHTML = technologiesToAddToHTML;
 
-  modulDescription.innerText = data[index].description;
+  modulDescription.innerHTML = data[index].description;
   git.href = data[index].git
   demo.href = data[index].demo
 
@@ -215,11 +215,36 @@ menu.addEventListener('transitionend', onTransitionEnd, false);
 
 menuBtn.addEventListener('click', toggleMenu, false)
 
+// show menu on scroll up 
+
+const largeScreen = (width) => {
+  window.onscroll = function () {
+    if (width.matches) {
+      if (this.oldScroll > this.scrollY) {
+        menu.classList.add('menu-on-scroll-up')
+      } else menu.classList.remove('menu-on-scroll-up')
+      this.oldScroll = this.scrollY;
+    }
+    console.log('matches')
+  }
+}
+
+let width = window.matchMedia("(min-width: 800px")
+largeScreen(width)
+window.addEventListener("resize", () => {
+  width = window.matchMedia("(min-width: 800px")
+})
+
+
+
 // Close menu on outside click
 
 window.addEventListener('click', (e) => {
   if (menu.classList.contains('active-menu')
-    && e.target.tagName === "SECTION"
+    && e.target.className !== "menu active-menu"
+    && e.target.className !== "menu-button active-menu-button"
+    && e.target.className !== "line"
+
   ) {
     console.log('ins', e)
     menu.classList.add('menu-animatable');

@@ -10,23 +10,44 @@
 
 <body>
 
-  <section class="home sec" id="1">
-    <p class="page-background-num">01</p>
+  <div class="menu-button">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 
-    <div class="menu-button">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <!-- <div class="logo">AJ</div> -->
+  <nav class="menu">
     <div class="theme-switch-wrapper">
       <label class="theme-switch" for="checkbox">
         <input type="checkbox" id="checkbox" />
         <div class="slider round"></div>
       </label>
     </div>
+    <ul>
+      <li class="enter-down"><a href="#1"><span>01</span>Home</a></li>
+      <li class="enter-down"><a href="#2"><span>02</span>About</a></li>
+      <li class="enter-down"><a href="#3"><span>03</span>Projects</a></li>
+      <li class="enter-down"><a href="#4"><span>04</span>Contact</a></li>
+      <li class="enter-down">
+        <a id="pdf-button" href="./resume.pdf" target="_blank">Resume</a>
+      </li>
+    </ul>
+  </nav>
 
-    <nav class="menu">
+  <section class="home sec" id="1">
+    <p class="page-background-num">01</p>
+
+
+    <!-- <div class="logo">AJ</div> -->
+
+
+    <!--     <nav class="menu">
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
       <ul>
         <li class="enter-down"><a href="#1"><span>01</span>Home</a></li>
         <li class="enter-down"><a href="#2"><span>02</span>About</a></li>
@@ -34,7 +55,7 @@
         <li class="enter-down"><a href="#4"><span>04</span>Contact</a></li>
         <li class="enter-down"><a href="./resume.pdf" target="_blank">Resume</a></li>
       </ul>
-    </nav>
+    </nav> -->
 
     <div class="intro">
       <h1 class="enter-up">Aleksandar Jocovic</h1>
@@ -137,17 +158,12 @@
         </div>
       </div>
       <div class="profile-img">
-        <!-- <img src="img/us.jpg" alt=""> -->
-        <div class="glitch"></div>
-        <div class="glitch"></div>
-        <div class="glitch"></div>
-        <div class="glitch"></div>
-
-        <!--         <div class="profile-img-border">
-          <svg>
-            <rect></rect>
-          </svg>
-        </div> -->
+        <div class="glitch-wrap">
+          <div class="glitch"></div>
+          <div class="glitch"></div>
+          <div class="glitch"></div>
+          <div class="glitch"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -346,6 +362,7 @@
           <input id="input-email" name="emial" type="email" class="form-control" placeholder=" " required />
           <label id="label-email">Your Email</label>
           <br />
+
           <textarea name="message" class="form-control" placeholder=" " cols="60" rows="10" required></textarea><br />
           <label id="label-message">Your Message</label>
 
