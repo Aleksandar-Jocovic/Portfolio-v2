@@ -6,7 +6,8 @@ resume srediti
 
 na malom ekr pojavi se horizontal scrool kad uciatva izg da je do interneta sad se ne pojavlhuje
 
-seo alt description title googleconsole 
+googleconsole 
+
 will change on all animaitons
 
 mozda normalna slika 

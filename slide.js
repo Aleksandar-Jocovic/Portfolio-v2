@@ -96,7 +96,7 @@ const data = [
     title: 'CV Free',
     img: ['./img/info-img/cvf1.png', './img/info-img/cvf2.png', './img/info-img/cvf3.png'],
     alt: ['CV free first image work section', 'CV free second image skills section', 'CV free last image profile summary'],
-    description: 'Online Circum Vitae (CV) builder. On this project I learned about jspdf library, uploading and downloading files.',
+    description: 'Online Circum Vitae (CV) building application. On this project I learned about jspdf library, uploading and downloading files.',
     tech: ['React.js', 'jspdf'],
     git: 'https://github.com/Aleksandar-Jocovic/CV-Free',
     demo: 'https://aleksandar-jocovic.github.io/CV-Free/',
@@ -104,7 +104,7 @@ const data = [
   {
     title: 'Project Base',
     img: ['./img/info-img/bas1.png', './img/info-img/bas2.png', './img/info-img/bas3.png'],
-    description: 'This project is a web presentation with interesting design and overlapping animation in the third section.',
+    description: 'This project is a simple web presentation with interesting design and overlapping animation in the third section.',
     tech: ['HTML5&CSS3', 'JS', 'SASS'],
     git: 'https://github.com/Aleksandar-Jocovic/Project-Base',
     demo: 'https://dazzling-montalcini-3e2474.netlify.app',
@@ -112,7 +112,7 @@ const data = [
   {
     title: 'County Info',
     img: ['./img/info-img/cou1.png', './img/info-img/cou2.png', './img/info-img/cou3.png'],
-    description: 'Simple web app where i worked with restcountries api.',
+    description: 'Simple web app where I worked with restcountries api.',
     tech: ['HTML5&CSS3', 'JS', 'React.js', 'Bootstrap4', 'restcountries api'],
     git: 'https://github.com/Aleksandar-Jocovic/Country-Info',
     demo: 'https://aleksandar-jocovic.github.io/Country-Info/',
@@ -120,7 +120,7 @@ const data = [
   {
     title: 'Tech Shop',
     img: ['./img/info-img/tec1.png', './img/info-img/tec2.png', './img/info-img/tec3.png'],
-    description: 'This is one of my first projects. Static website where i practised stuff that I learnded from tutorials.',
+    description: 'This is one of my first projects. Static website where i practiced implementing stuff that I learnded from tutorials.',
     tech: ['HTML5&CSS3', 'JS'],
     git: 'https://github.com/Aleksandar-Jocovic/TECH-SHOP-template',
     demo: 'https://frosty-kilby-034165.netlify.app/index.html',
@@ -128,8 +128,8 @@ const data = [
   {
     title: 'Random Color',
     img: ['./img/info-img/col1.png', './img/info-img/col2.png', './img/info-img/col3.png'],
-    description: 'The idea for this project came to me when I was reading the redux documentation about undo/redo implementation.',
-    tech: ['HTML5&CSS3', 'JS', 'React.js', 'Redux'],
+    description: 'Simple random color generator with redux undo/redo implementation.',
+    tech: ['HTML5&CSS3', 'React.js', 'Redux'],
     git: 'https://github.com/Aleksandar-Jocovic/Random-Color-UNDO-REDO-react-redux',
     demo: 'https://aleksandar-jocovic.github.io/Random-Color-UNDO-REDO-react-redux/',
   },
@@ -283,6 +283,7 @@ window.onclick = (event) => {
   }
 };
 
+// Copy skype and gmail to clipboard
 const copyText = (e) => {
   const text = document.querySelector(`.pop-text${e.target.name}`).innerText;
 
@@ -367,7 +368,11 @@ loop();
 function isElementInViewport(el) {
   var rect = el.getBoundingClientRect();
 
-  return (rect.top <= 0 && rect.bottom >= 0 - rect.height / 2) || (rect.bootom - rect.height / 2 >= (window.innerHeight || document.documentElement.clientHeight) && rect.top <= (window.innerHeight || document.documentElement.clientHeight)) || (rect.top >= 0 && rect.bottom - rect.height / 2 <= (window.innerHeight || document.documentElement.clientHeight));
+  return (rect.top <= 0 && rect.bottom >= 0 - rect.height / 2)
+    || (rect.bootom - rect.height / 2 >= (window.innerHeight || document.documentElement.clientHeight)
+      && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+    ) || (rect.top >= 0 && rect.bottom - rect.height / 2 <= (window.innerHeight
+      || document.documentElement.clientHeight));
 }
 
 function isSectionInViewport(el) {
@@ -393,7 +398,7 @@ const removePageNavAnimation = () => {
   }, 300);
 };
 
-// ligt/dark
+// ligt/dark theme
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
