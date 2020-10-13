@@ -258,7 +258,7 @@ function btnFun(e) {
       popOne.classList.add('pop-up-false');
       popTwo.classList.add('pop-up-false');
     }
-    let pop = document.getElementById(`pop${e.target.name}`);
+    let pop = document.getElementById(`pop${e.target.value}`);
     if (pop.classList.contains('pop-up-false')) {
       pop.classList.remove('pop-up-false');
     } else pop.classList.add('pop-up-false');

@@ -7,8 +7,8 @@ const imagesWrap = document.querySelector('.images-wrap');
 let position = -300;
 let clicked = false;
 
-activeImg = 2;
-
+activeImg = 2;  
+    
 const slide = (el, positionChange, index) => {
   clicked = true;
   imagesWrap.style.transform = `translateX(${position + positionChange}px)`;
