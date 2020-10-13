@@ -97,7 +97,7 @@
     </div>
 
     <div class="page-navigation">
-      <a href="#2" id="page-link1" class="page-nav-link enter-down">
+      <a aria-label="scroll to previous page" href="#2" id="page-link1" class="page-nav-link enter-down">
         <svg height="25" width="24">
           <polyline points="1,13 12,1 23,13 " />
         </svg>
@@ -110,7 +110,7 @@
       </svg>
 
       <div class="page-num" id="page-num2">02</div>
-      <a href="#2" id="page-link2" class="page-nav-link enter-up">
+      <a aria-label="scroll to next page" href="#2" id="page-link2" class="page-nav-link enter-up">
         <svg height="24" width="24">
           <polyline points="1,1 12,13 23,1 " />
         </svg>
@@ -335,14 +335,14 @@
         <h2>Or send a mesage</h2>
         <form id="contact-form" netlify>
           <input id="input-name" name="name" type="text" class="form-control" placeholder=" " required />
-          <label id="label-name">Your Name</label>
+          <label for="input-name" id="label-name">Your Name</label>
 
           <input id="input-email" name="emial" type="email" class="form-control" placeholder=" " required />
-          <label id="label-email">Your Email</label>
+          <label for="input-email" id="label-email">Your Email</label>
           <br />
 
           <textarea name="message" class="form-control" placeholder=" " cols="60" rows="10" required></textarea><br />
-          <label id="label-message">Your Message</label>
+          <label for="message" id="label-message">Your Message</label>
 
           <input type="submit" value="SEND" />
         </form>
