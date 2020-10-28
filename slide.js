@@ -90,7 +90,7 @@ const data = [
     description: "It's a habit tracker application. Building this app I worked with Context, authentication, protected routes, and data visualization.",
     tech: ['React.js(context)', 'Bootstrap4', 'ApexChart.js', 'CountUp.js'],
     git: 'https://github.com/Aleksandar-Jocovic/Norms-React-App',
-    demo: 'https://xenodochial-edison-e3f9a0.netlify.app/',
+    demo: 'https://norms-app.netlify.app/',
   },
   {
     title: 'CV Free',

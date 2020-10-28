@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,400;1,800&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -18,12 +16,12 @@ html {
   --border-color: #bfc0bc91;
   --bg-dark: #1e2127;
   --secondary: #eeeeee;
-  /* --heading: #34cceb; */
   --heading: #7ce4e4;
   --scrollbar: #858585;
   --scrollbar-track: #4b4a4a;
   --menu-color: #131416;
   --shadow-nav: #181d25;
+  --paragraf-weight: 400;
 }
 
 [data-theme='light'] {
@@ -37,6 +35,8 @@ html {
   --scrollbar-track: #858585;
   --menu-color: #dfdede;
   --shadow-nav: #3f3f383b;
+  --paragraf-weight: 500;
+
 }
 
 body {
@@ -58,9 +58,6 @@ section {
   position: unset;
 }
 
-section:nth-child(2) {
-  /* padding-top: 200px; */
-}
 p {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -167,9 +164,7 @@ p {
   text-align: center;
   z-index: 2;
 }
-/* .pop-up:last-child {
-  transform: translate(25%, 100%);
-} */
+
 .pop-up p {
   font-size: 14px;
 }
@@ -383,11 +378,9 @@ nav ul li a {
   letter-spacing: 2px;
 }
 
-/* nav ul li:nth-child(5) a {
-  padding: 0 10px;
-  border: 2px solid var(--heading);
-} */
 nav ul li:nth-child(5) a {
+  padding: 0 10px;
+  border: 1px solid var(--heading);
 }
 
 nav ul li a span {
@@ -477,8 +470,8 @@ input:checked + .slider:before {
   transform: translateY(-40%);
   font-family: 'Montserrat', sans-serif;
   max-width: 604px;
-  /* margin: 250px 0 0 0px; */
 }
+
 .intro h1 {
   font-size: 60px;
   font-weight: 400;
@@ -489,7 +482,6 @@ input:checked + .slider:before {
 .intro h2 {
   font-size: 40px;
   font-weight: 400;
-
   margin: 0px 0 50px 0;
   animation-delay: 900ms;
 }
@@ -499,7 +491,7 @@ input:checked + .slider:before {
   font-weight: 400;
   line-height: 140%;
   max-width: 500px;
-
+  font-weight: var(--paragraf-weight);
 }
 
 /* ******************************************** abbout start */
@@ -788,6 +780,7 @@ input:checked + .slider:before {
 
 .about-text-and-tech p {
   max-width: 560px;
+  font-weight: var(--paragraf-weight);
 }
 
 .tech-list {
@@ -801,8 +794,7 @@ input:checked + .slider:before {
   padding: 2px 15px;
   margin-bottom: 10px;
   background: var(--bg-dark);
-  color: var(--scrollbar);
-  font-weight: 600;
+  color: var(--heading);
 }
 
 /* ******************************************** contact start */
@@ -820,10 +812,12 @@ input:checked + .slider:before {
 
 .contact-text-and-info p {
   margin-bottom: 30px;
+  font-weight: var(--paragraf-weight);
 }
 .contact-text-and-info div h3 {
   color: var(--secondary);
   margin: 10px 0;
+  font-weight: 500;
 }
 
 .contact-form {
@@ -838,6 +832,7 @@ input:checked + .slider:before {
 
 .contact-form h2 {
   margin-bottom: 20px;
+  font-weight: 500;
 }
 input,
 textarea {
@@ -1072,7 +1067,7 @@ select:-webkit-autofill:focus {
   text-align: center;
   height: 30px;
   font-family: 'Montserat', sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
   text-transform: capitalize;
   z-index: 3;
@@ -1086,7 +1081,7 @@ select:-webkit-autofill:focus {
 }
 
 .info-button {
-  font-size: 11px;
+  font-size: 12px;
   font-family: 'Montserat', sans-serif;
   text-transform: uppercase;
   font-weight: 800;
@@ -1178,9 +1173,6 @@ button svg {
   position: relative;
   align-self: center;
   overflow: hidden;
-}
-
-.title-and-tech {
 }
 
 .fake-title {
@@ -1313,6 +1305,10 @@ button svg {
   bottom: -4px;
   right: -4px;
   z-index: 1;
+}
+
+#modul-title, .fake-title {
+  font-weight: 500;
 }
 
 .tech-used {
@@ -1503,7 +1499,6 @@ button svg {
   .project-modul {
     flex-direction: column;
     padding-left: 0;
-    /* padding-top: 50px; */
     max-width: 454px;
   }
 
@@ -1746,5 +1741,3 @@ button svg {
     font-size: 16px;
   }
 }
-
-/* link button on hover dont work */

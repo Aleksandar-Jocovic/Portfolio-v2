@@ -132,6 +132,7 @@ p {
   fill: var(--heading);
   transform: translateY(-3px);
 } */
+
 .icons-home::before {
   content: '';
   position: absolute;
@@ -142,6 +143,7 @@ p {
   background: var(--primary);
   transform: translateY(110%);
 }
+
 .icons-home a:nth-child(1) {
   animation-delay: 1100ms;
 }
