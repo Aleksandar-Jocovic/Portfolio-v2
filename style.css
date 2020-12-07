@@ -17,6 +17,7 @@ html {
   --bg-dark: #1e2127;
   --secondary: #eeeeee;
   --heading: #7ce4e4;
+  --tech-list:  #1e2127;
   --scrollbar: #858585;
   --scrollbar-track: #4b4a4a;
   --menu-color: #131416;
@@ -31,6 +32,7 @@ html {
   --bg-dark: #b9b9b7;
   --secondary: #3d4250;
   --heading: #ce7329;
+  --tech-list: #F0F0EF;
   --scrollbar: #4b4a4a;
   --scrollbar-track: #858585;
   --menu-color: #dfdede;
@@ -793,7 +795,8 @@ input:checked + .slider:before {
   width: fit-content;
   padding: 2px 15px;
   margin-bottom: 10px;
-  background: var(--bg-dark);
+  background: var(--tech-list);
+  border-radius: 4px;
   color: var(--heading);
 }
 
