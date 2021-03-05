@@ -1277,7 +1277,7 @@ button svg {
 .project-modul-info {
 	width: 450px;
 	height: 320px;
-	padding: 35px 25px 25px 25px;
+	padding: 35px 25px 45px 25px;
 	color: var(--primary);
 	background: var(--bg-dark);
 	display: flex;
@@ -1628,6 +1628,7 @@ button svg {
 	}
 	.project-modul-info {
 		width: 100%;
+		padding: 35px 25px 25px 25px;
 	}
 
 	.intro {
